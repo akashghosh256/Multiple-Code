@@ -55,19 +55,17 @@ Calculate the coefficient of restitution e = V / Vn.
 Calculate the rebound height after N bounces using the formula H' = H × e^(2N).
 Here’s the Java implementation to calculate the rebound height:
 
-java
-Copy code
 import java.util.Scanner;
 
-public class ReboundHeightCalculator {
+public class Main {
 
     // Function to calculate the rebound height after N bounces
-    public static double calculateReboundHeight(double H, double V, double Vn, int N) {
+    public static double calculateReboundHeight(double H, double V, double Vn) {
         // Calculate the coefficient of restitution
         double e = V / Vn;
 
         // Calculate the rebound height after N bounces
-        double reboundHeight = H * Math.pow(e, 2 * N);
+        double reboundHeight = H * Math.pow(e, 2);
         
         return reboundHeight;
     }
@@ -75,26 +73,25 @@ public class ReboundHeightCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Read input values
-        System.out.print("Enter the initial height (H): ");
+
         double H = scanner.nextDouble();
+        scanner.nextLine();
 
-        System.out.print("Enter the initial velocity (V): ");
         double V = scanner.nextDouble();
+         scanner.nextLine();
 
-        System.out.print("Enter the final velocity after N bounces (Vn): ");
+
         double Vn = scanner.nextDouble();
 
-        System.out.print("Enter the number of bounces (N): ");
-        int N = scanner.nextInt();
-
-        // Calculate and print the rebound height
-        double reboundHeight = calculateReboundHeight(H, V, Vn, N);
-        System.out.println("The rebound height after " + N + " bounces is: " + (int)reboundHeight);
+ 
+        double reboundHeight = calculateReboundHeight(H, V, Vn);
+        System.out.println("The rebound height after  bounces is: " + (int)reboundHeight);
 
         scanner.close();
     }
 }
+
+
 Explanation:
 Input: The program reads the initial height H, the initial velocity V, the final velocity after N bounces Vn, and the number of bounces N.
 Coefficient of restitution: This is calculated as e = V / Vn.
